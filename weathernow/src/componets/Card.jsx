@@ -7,7 +7,7 @@ import { BsFillSunFill } from 'react-icons/bs';
 const card = () => {
     return (
         <div className='container'>
-            <div className="infos"> 
+            <div className="infos">
 
                 <MdLocationOn />
                 <div className="nameCity">
@@ -17,15 +17,25 @@ const card = () => {
 
             </div>
 
-            <div className='box-img-atual'>
+            <div className='climate-widget'>
                 <span> <BsFillSunFill /> </span>
-                
-                <span className='celsius'>33°</span>
-                <span className='tempo'>Sunny</span>
+                <span className='temperature'>33°</span>
+                <span className='climate'>Sunny</span>
             </div>
 
-            <div className='previsoes'>
-                
+            <div className='daily-temperature-widget'>
+                <div className='today'>
+                    <span>Today</span>
+                    <span>33°/25</span>
+                </div>
+                <div className='today+1'>
+                    <span>Wednesday</span>
+                    <span>33°/25</span>
+                </div>
+                <div className='today+2'>
+                    <span>Thursday</span>
+                    <span>33°/25</span>
+                </div>
             </div>
 
         </div>
