@@ -1,0 +1,28 @@
+.container{
+    background-color: #83c8d8;
+    width: 160px;
+    height: 290px;
+    padding: 10px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+.infos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+.infos button{
+    color: #fff;
+    background: none ;
+    border: none;
+    cursor: pointer;
+}
+.box-img-atual{
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+}
