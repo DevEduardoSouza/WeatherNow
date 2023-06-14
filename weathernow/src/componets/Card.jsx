@@ -4,14 +4,14 @@ import { MdLocationOn } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsFillSunFill } from 'react-icons/bs';
 
-const card = () => {
+const card = (tempoAtual) => {
     return (
         <div className='container'>
             <div className="infos">
 
                 <MdLocationOn />
                 <div className="nameCity">
-                    <span>Irecê</span>
+                    <span>{tempoAtual.city_name}</span>
                 </div>
                 <GiHamburgerMenu />
 
