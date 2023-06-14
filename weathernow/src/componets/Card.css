@@ -1,14 +1,19 @@
+
 .container{
-    background-color: #83c8d8;
     width: 160px;
     height: 290px;
-    padding: 10px;
+    background-color: #83c8d8;
+    color: #fff;
+}
+.content{
+    width: 160px;
+    height: 290px;
+    padding: 10px;  
     border-radius: 5px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #fff;
 }
 .infos{
     display: flex;

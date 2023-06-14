@@ -23,14 +23,14 @@ const Home = () => {
     // console.log(data.data[0].city_name);
     // console.log(data.city_name);
 
-    console.log(tempoInfos.weather.description);
-
+    
   }
-
+  
 
   useEffect(() => { 
     const tempoAtualURL =`${tempoURL}?lang=pt&city=Irecê&${apiKey}&include=minutely`;
     getInfoTempo(tempoAtualURL);
+    // console.log(tempoInfos.weather.description);
   }, []);
 
 
