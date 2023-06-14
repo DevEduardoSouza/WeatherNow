@@ -18,15 +18,18 @@ const Home = () => {
     const resposta = await fetch(url);
     const data = await resposta.json();
 
-    setTempoInfos(data);
-    console.log(data);
+    setTempoInfos(data.data[0]);
+
+    // console.log(data.data[0].city_name);
+    // console.log(data.city_name);
+
+    console.log(tempoInfos.weather.description);
 
   }
 
 
   useEffect(() => { 
-
-    const tempoAtualURL =`${tempoURL}?city=Irecê&${apiKey}`;
+    const tempoAtualURL =`${tempoURL}?lang=pt&city=Irecê&${apiKey}&include=minutely`;
     getInfoTempo(tempoAtualURL);
   }, []);
 

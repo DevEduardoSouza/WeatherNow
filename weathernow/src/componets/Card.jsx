@@ -4,14 +4,16 @@ import { MdLocationOn } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsFillSunFill } from 'react-icons/bs';
 
-const card = (tempoAtual) => {
+const card = ({tempoAtual}) => {
+
+
     return (
         <div className='container'>
             <div className="infos">
 
                 <MdLocationOn />
                 <div className="nameCity">
-                    <span>{tempoAtual.city_name}</span>
+                    <span >{tempoAtual.city_name}</span>
                 </div>
                 <GiHamburgerMenu />
 
@@ -20,7 +22,7 @@ const card = (tempoAtual) => {
             <div className='climate-widget'>
                 <span className='icon'> <BsFillSunFill  className='largeIcon' /> </span>
                 <span className='temperature'>33°</span>
-                <span className='climate'>Sunny</span>
+                {/* <span className='climate'>{tempoAtual.weather.description}</span> */}
             </div>
 
             <div className='daily-temperature-widget'>
