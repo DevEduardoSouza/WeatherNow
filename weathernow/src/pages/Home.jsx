@@ -18,6 +18,10 @@ const Home = () => {
     const resposta = await fetch(url);
     const data = await resposta.json();
 
+
+    // Formatar a temp para abs
+    const temperatura = data.data[0].temp;
+    data.data[0].temp = parseInt(temperatura.toFixed());
     setTempoInfos(data.data[0]);
 
     // console.log(data.data[0].city_name);
@@ -30,7 +34,6 @@ const Home = () => {
   useEffect(() => { 
     const tempoAtualURL =`${tempoURL}?lang=pt&city=Irecê&${apiKey}&include=minutely`;
     getInfoTempo(tempoAtualURL);
-    // console.log(tempoInfos.weather.description);
   }, []);
 
 
