@@ -4,7 +4,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsFillSunFill } from 'react-icons/bs';
 
-const card = ({ tempoAtual }) => {
+const card = ({ tempoAtual, prevTempo }) => {
     
 
     return (
@@ -31,7 +31,7 @@ const card = ({ tempoAtual }) => {
                     <div className='daily-temperature-widget'>
                         <div className='today'>
                             <span>Today</span>
-                            <span>33°/ 25°</span>
+                            <span>{prevTempo.app_max_temp}°/ {prevTempo.app_min_temp}°</span>
                         </div>
                         <div className='today+1'>
                             <span>Wednesday</span>
