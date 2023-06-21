@@ -16,6 +16,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const Home = () => {
   const [tempoInfos, setTempoInfos] = useState([]);
   const [prevInfos, setPrevInfos] = useState([]);
+  const [search, setSearch] = useState("irece");
 
   const getInfoTempo = async (url) => {
     const resposta = await fetch(url);
@@ -39,11 +40,11 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const tempoAtualURL = `${tempoURL}?lang=pt&city=Irecê&${apiKey}&include=minutely`;
+    const tempoAtualURL = `${tempoURL}?lang=pt&city=${search}&${apiKey}&include=minutely`;
     const prevAtualURL = `${prevURL}?lang=pt&city=Irecê&${apiKey}`;
     getInfoTempo(tempoAtualURL);
     getPrevisoes(prevAtualURL);
-  }, []);
+  }, [search]);
 
   const formatDate = (datetime) => {
     const apiDateTime = datetime;
@@ -76,6 +77,15 @@ const Home = () => {
       year;
 
     return formatDateString;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //validações do search
+    if (!search) return;
+
+    setSearch(`${search}`);
   };
 
   console.log("TempoInfos");
@@ -111,12 +121,14 @@ const Home = () => {
               </div>
 
               <div className="search-city">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <input
                     type="search"
                     className="search"
                     name="search"
                     placeholder="Nome da cidade"
+                    onChange={(e) => setSearch(e.target.value)}
+                    value={search}
                   />
                   <button type="submit">
                     <BiSearch className="large-search" />
