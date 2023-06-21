@@ -51,9 +51,7 @@ const Home = () => {
 
   return (
     <div className='cotainerHome'>
-
       <Card tempoAtual={tempoInfos} prevTempo={prevInfos}/>
-
     </div>
   )
 }
