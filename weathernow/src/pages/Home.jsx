@@ -1,6 +1,8 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BsFillSunFill } from "react-icons/bs";
+import { BiSearch } from "react-icons/bi";
 
 import Card from "../componets/Card.jsx";
 import "./Home.css";
@@ -41,23 +43,49 @@ const Home = () => {
     getPrevisoes(prevAtualURL);
   }, []);
 
+  // console.log("TempoInfos");
+  // console.log(tempoInfos);
+
   return (
     <div className="container-home">
       {/* <Card tempoAtual={tempoInfos} prevTempo={prevInfos}/> */}
       <div className="content-home">
-        <div className="tempo-hoje">
-          <span className="logo">Logo</span>
+        {tempoInfos.length === 0 && <div className="loading">Carregando</div>}
+        {tempoInfos.length != 0 && (
+          <div className="tempo-hoje">
+            <span className="logo">Logo</span>
 
-          <div className="infos">
-            <div className="tempo-icon"></div>
-            <div className="weather-description"></div>
-            <div className="temp-atual"></div>
+            <div className="infos">
+              <div className="temp-icon">
+                <BsFillSunFill className="large-icon" />
+              </div>
+              <div className="weather-description">
+                {tempoInfos.weather.description}
+              </div>
+              <div className="temp-atual">
+                {tempoInfos.temp}
+                <sup>°c</sup>
+              </div>
 
-            <div className="search-city"></div>
-            <div className="date"></div>
-            <div className="name-city"></div>
+              <div className="search-city">
+                <form>
+                  <input
+                    type="search"
+                    className="search"
+                    name="search"
+                    placeholder="Nome da cidade"
+                  />
+                  <button type="submit">
+                    <BiSearch className="large-search" />
+                  </button>
+                </form>
+              </div>
+              <div className="date"></div>
+              <div className="name-city">{tempoInfos.city_name}</div>
+            </div>
           </div>
-        </div>
+        )}
+
         <div className="tempo-prev"></div>
       </div>
     </div>
