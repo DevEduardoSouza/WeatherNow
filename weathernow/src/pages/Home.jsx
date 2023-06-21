@@ -1,12 +1,9 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { BsFillSunFill } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
-
-import Card from "../componets/Card.jsx";
 
 const tempoURL = import.meta.env.VITE_API;
 const prevURL = import.meta.env.VITE_API_PREVISAO;
@@ -14,37 +11,24 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   const [tempoInfos, setTempoInfos] = useState([]);
-  const [prevInfos, setPrevInfos] = useState([]);
   const [search, setSearch] = useState("irece");
-
-  const getInfoTempo = async (url) => {
-    const resposta = await fetch(url);
-    const data = await resposta.json();
-
-    const temperatura = data.data[0].temp;
-    data.data[0].temp = parseInt(temperatura.toFixed());
-    setTempoInfos(data.data[0]);
-
-    // console.log(data.data[0].city_name);
-    // console.log(data.city_name);
-  };
 
   const getPrevisoes = async (url) => {
     const resposta = await fetch(url);
     const data = await resposta.json();
 
-    setPrevInfos(data.data[0]);
-    // console.log(data);
-    // console.log(data.data[0].app_max_temp);
+    const temperatura = data.data[0].temp;
+    data.data[0].temp = parseInt(temperatura.toFixed());
+
+    setTempoInfos(data.data[0]);
   };
 
   useEffect(() => {
     const tempoAtualURL = `${tempoURL}?lang=pt&city=${search}&${apiKey}&include=minutely`;
-    const prevAtualURL = `${prevURL}?lang=pt&city=Irecê&${apiKey}`;
-    getInfoTempo(tempoAtualURL);
-    getPrevisoes(prevAtualURL);
+    getPrevisoes(tempoAtualURL);
   }, [search]);
 
+  // Date
   const formatDate = (datetime) => {
     const apiDateTime = datetime;
 
@@ -78,10 +62,15 @@ const Home = () => {
     return formatDateString;
   };
 
+  const [valueInput, setValueInput] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
 
-    setSearch(`${search}`);
+  const getInput = () => {
+    console.log(search);
+    setSearch(valueInput);
   };
 
   return (
@@ -120,10 +109,10 @@ const Home = () => {
                     className="search"
                     name="search"
                     placeholder="Nome da cidade"
-                    onChange={(e) => setSearch(e.target.value)}
-                    value={search}
+                    onChange={(e) => setValueInput(e.target.value)}
+                    // value={search}
                   />
-                  <button type="submit">
+                  <button type="submit" onClick={getInput}>
                     <BiSearch className="large-search" />
                   </button>
                 </form>
