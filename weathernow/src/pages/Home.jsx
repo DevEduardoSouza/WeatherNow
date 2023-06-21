@@ -7,7 +7,6 @@ import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 import Card from "../componets/Card.jsx";
-import "./Home.css";
 
 const tempoURL = import.meta.env.VITE_API;
 const prevURL = import.meta.env.VITE_API_PREVISAO;
@@ -82,14 +81,8 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //validações do search
-    if (!search) return;
-
     setSearch(`${search}`);
   };
-
-  console.log("TempoInfos");
-  console.log(tempoInfos);
 
   return (
     <div className="container-home">

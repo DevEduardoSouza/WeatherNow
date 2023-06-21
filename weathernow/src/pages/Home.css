@@ -62,6 +62,7 @@
 }
 .infos .search-city{
   margin: 20px 0;
+  
 }
 
 form{
@@ -81,6 +82,7 @@ form{
 .search-city button .large-search{
   font-size: 20px;
   color: #000;
+  padding-left: 5px;
 }
 
 .infos .name-city{
