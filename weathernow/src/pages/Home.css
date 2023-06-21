@@ -1,0 +1,14 @@
+.container-home{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-home{
+  background-color: #1ebd9d;
+  width: 1000px;
+  height: 550px;
+}
