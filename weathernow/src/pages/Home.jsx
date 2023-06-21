@@ -1,5 +1,6 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Card from "../componets/Card.jsx";
 import "./Home.css";
@@ -43,7 +44,22 @@ const Home = () => {
   return (
     <div className="container-home">
       {/* <Card tempoAtual={tempoInfos} prevTempo={prevInfos}/> */}
-      <div className="content-home"></div>
+      <div className="content-home">
+        <div className="tempo-hoje">
+          <span className="logo">Logo</span>
+
+          <div className="infos">
+            <div className="tempo-icon"></div>
+            <div className="weather-description"></div>
+            <div className="temp-atual"></div>
+
+            <div className="search-city"></div>
+            <div className="date"></div>
+            <div className="name-city"></div>
+          </div>
+        </div>
+        <div className="tempo-prev"></div>
+      </div>
     </div>
   );
 };

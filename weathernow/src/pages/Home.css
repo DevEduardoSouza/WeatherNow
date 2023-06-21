@@ -11,4 +11,26 @@
   background-color: #1ebd9d;
   width: 1000px;
   height: 550px;
+  
+
+  display: flex;
+}
+
+.tempo-hoje{
+  background-color: #19a88a;
+  box-shadow: 4px 0px 5px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  z-index: 100;
+}
+
+.tempo-prev{
+  background-color: #1ebd9d;
+  flex: 2;
+}
+
+.logo{
+  text-align: center;
+  color: white;
+  display: block;
+  margin-top: 20px;
 }
