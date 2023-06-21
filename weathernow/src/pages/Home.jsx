@@ -21,10 +21,11 @@ const Home = () => {
     data.data[0].temp = parseInt(temperatura.toFixed());
 
     setTempoInfos(data.data[0]);
+    console.log(tempoInfos);
   };
 
   useEffect(() => {
-    const tempoAtualURL = `${tempoURL}?lang=pt&city=${search}&${apiKey}&include=minutely`;
+    const tempoAtualURL = `${tempoURL}?lang=pt&city=${search}&country=BR&${apiKey}&include=minutely`;
     getPrevisoes(tempoAtualURL);
   }, [search]);
 
@@ -69,7 +70,6 @@ const Home = () => {
   };
 
   const getInput = () => {
-    console.log(search);
     setSearch(valueInput);
   };
 
