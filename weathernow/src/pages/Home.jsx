@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsFillSunFill } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
+import { format, parseISO } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 import Card from "../componets/Card.jsx";
 import "./Home.css";
@@ -43,8 +45,41 @@ const Home = () => {
     getPrevisoes(prevAtualURL);
   }, []);
 
-  // console.log("TempoInfos");
-  // console.log(tempoInfos);
+  const formatDate = (datetime) => {
+    const apiDateTime = datetime;
+
+    // Extrair a parte da data da string
+    const datePart = apiDateTime.substring(0, 10);
+
+    // Converter a string de data em um objeto de data
+    const parsedDate = parseISO(datePart);
+
+    // Obter o nome do dia da semana em português (exemplo: "segunda-feira")
+    const diaSemana = format(parsedDate, "EEEE", { locale: ptBR });
+
+    // Obter o nome do mês em português (exemplo: "junho")
+    const monthName = format(parsedDate, "MMMM", { locale: ptBR });
+
+    // Obter o dia do mês
+    const dayOfMonth = parsedDate.getDate();
+
+    // Obter o ano
+    const year = parsedDate.getFullYear();
+
+    const formatDateString =
+      diaSemana.replace("-", " ") +
+      ", " +
+      dayOfMonth +
+      " " +
+      monthName +
+      " " +
+      year;
+
+    return formatDateString;
+  };
+
+  console.log("TempoInfos");
+  console.log(tempoInfos);
 
   return (
     <div className="container-home">
@@ -53,9 +88,17 @@ const Home = () => {
         {tempoInfos.length === 0 && <div className="loading">Carregando</div>}
         {tempoInfos.length != 0 && (
           <div className="tempo-hoje">
-            <span className="logo">Logo</span>
+            <span className="logo">
+              {" "}
+              <img
+                src="https://cdn.icon-icons.com/icons2/3609/PNG/512/climate_forecast_weather_summer_rain_night_sun_cloudy_cloud_icon_226606.png"
+                alt="Logo nuvem"
+              />
+            </span>
 
             <div className="infos">
+              <div className="name-city">{tempoInfos.city_name}</div>
+
               <div className="temp-icon">
                 <BsFillSunFill className="large-icon" />
               </div>
@@ -64,7 +107,7 @@ const Home = () => {
               </div>
               <div className="temp-atual">
                 {tempoInfos.temp}
-                <sup>°c</sup>
+                <sup>°</sup>
               </div>
 
               <div className="search-city">
@@ -80,8 +123,7 @@ const Home = () => {
                   </button>
                 </form>
               </div>
-              <div className="date"></div>
-              <div className="name-city">{tempoInfos.city_name}</div>
+              <div className="date">{formatDate(tempoInfos.datetime)}</div>
             </div>
           </div>
         )}
