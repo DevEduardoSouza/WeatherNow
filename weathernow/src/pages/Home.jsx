@@ -101,7 +101,10 @@ const Home = () => {
               <div className="name-city">{tempoInfos.city_name}</div>
 
               <div className="temp-icon">
-                <BsFillSunFill className="large-icon" />
+                <img
+                  src={`https://www.weatherbit.io/static/img/icons/${tempoInfos.data[0].weather.icon}.png`}
+                  alt="icon"
+                />
               </div>
               <div className="weather-description">
                 {tempoInfos.data[0].weather.description}
@@ -119,6 +122,8 @@ const Home = () => {
                     name="search"
                     placeholder="Nome da cidade"
                     onChange={(e) => setValueInput(e.target.value)}
+                    autoComplete="off"
+
                     // value={search}
                   />
                   <button type="submit" onClick={getInput}>
@@ -147,7 +152,7 @@ const Home = () => {
               <Card
                 key={index}
                 tempoAtual={tempoInfos}
-                index={index}
+                index={index + 1}
                 formatDate={formatDate}
               />
             ))}

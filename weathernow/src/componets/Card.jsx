@@ -20,13 +20,16 @@ const card = ({ tempoAtual, index, formatDate }) => {
       {tempoAtual.length != 0 && (
         <div className="content">
           <div className="climate-widget">
-            <span className="icon">
+            <div className="icon">
               {" "}
-              <BsFillSunFill className="largeIcon" />{" "}
-            </span>
+              <img
+                src={`https://www.weatherbit.io/static/img/icons/${tempoAtual.data[index].weather.icon}.png`}
+                alt="icon"
+              />
+            </div>
 
             <span className="temperature">
-              {tempoAtual.data[index].temp}
+              {tempoAtual.data[index].app_max_temp}
               <sup>°</sup>{" "}
             </span>
 

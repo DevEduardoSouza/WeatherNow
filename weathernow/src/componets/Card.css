@@ -13,6 +13,9 @@
 .climate-widget .icon{
     color: #ffd171;
 }
+.climate-widget .icon img{
+    width: 80px;
+}
 .climate-widget .icon .largeIcon{
     font-size: 70px;
 }
