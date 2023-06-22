@@ -15,8 +15,6 @@ const card = ({ tempoAtual, formatDate }) => {
       {tempoAtual.length === 0 && <div className="loading">Carregando</div>}
       {tempoAtual.length != 0 && (
         <div className="content">
-          <div className="infos"></div>
-
           <div className="climate-widget">
             <span className="icon">
               {" "}
