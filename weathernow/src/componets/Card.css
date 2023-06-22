@@ -1,9 +1,9 @@
 .content{
-    border: 1px solid gray;
-    width: 160px;
-    height: 200px;
+    width: 220px;
+    height: 230px;
     border-radius: 5px;
     color: #ffff;
+    padding: 20px;
 }
 .climate-widget{
     display: flex;

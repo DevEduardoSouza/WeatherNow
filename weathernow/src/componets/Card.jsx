@@ -4,11 +4,15 @@ import { MdLocationOn } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillSunFill } from "react-icons/bs";
 
-const card = ({ tempoAtual, formatDate }) => {
+const card = ({ tempoAtual, index, formatDate }) => {
   //   const date = formatDate(tempoAtual.datetime);
-  const date = tempoAtual.datetime
-    ? formatDate(tempoAtual.datetime, false)
-    : "";
+
+  var date = "";
+  if (tempoAtual.length != 0) {
+    date = tempoAtual.data[index].datetime
+      ? formatDate(tempoAtual.data[index].datetime, false)
+      : "";
+  }
 
   return (
     <div className="container">
@@ -22,11 +26,13 @@ const card = ({ tempoAtual, formatDate }) => {
             </span>
 
             <span className="temperature">
-              {tempoAtual.temp}
+              {tempoAtual.data[index].temp}
               <sup>°</sup>{" "}
             </span>
 
-            <span className="climate">{tempoAtual.weather.description}</span>
+            <span className="climate">
+              {tempoAtual.data[index].weather.description}
+            </span>
             <div className="dateCard">{date}</div>
           </div>
         </div>

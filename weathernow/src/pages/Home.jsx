@@ -20,14 +20,15 @@ const Home = () => {
     const data = await resposta.json();
 
     const temperatura = data.data[0].temp;
+
     data.data[0].temp = parseInt(temperatura.toFixed());
 
-    setTempoInfos(data.data[0]);
-    console.log(tempoInfos);
+    setTempoInfos(data);
+    console.log(data);
   };
 
   useEffect(() => {
-    const tempoAtualURL = `${tempoURL}?lang=pt&city=${search}&country=BR&${apiKey}&include=minutely`;
+    const tempoAtualURL = `${prevURL}?lang=pt&city=${search}&country=BR&${apiKey}&include=minutely`;
     getPrevisoes(tempoAtualURL);
   }, [search]);
 
@@ -79,6 +80,8 @@ const Home = () => {
     setSearch(valueInput);
   };
 
+  // const limitedData = tempoInfos.data.slice(0, 6); // Limite para 6 elementos
+
   return (
     <div className="container-home">
       {/* <Card tempoAtual={tempoInfos} prevTempo={prevInfos}/> */}
@@ -101,10 +104,10 @@ const Home = () => {
                 <BsFillSunFill className="large-icon" />
               </div>
               <div className="weather-description">
-                {tempoInfos.weather.description}
+                {tempoInfos.data[0].weather.description}
               </div>
               <div className="temp-atual">
-                {tempoInfos.temp}
+                {tempoInfos.data[0].temp}
                 <sup>°</sup>
               </div>
 
@@ -124,7 +127,7 @@ const Home = () => {
                 </form>
               </div>
               <div className="date">
-                {formatDate(tempoInfos.datetime, true)}
+                {formatDate(tempoInfos.data[0].datetime, true)}
               </div>
             </div>
           </div>
@@ -140,7 +143,14 @@ const Home = () => {
           </span>
 
           <div className="tempo-prev-cards">
-            <Card tempoAtual={tempoInfos} formatDate={formatDate} />
+            {Array.from({ length: 6 }).map((_, index) => (
+              <Card
+                key={index}
+                tempoAtual={tempoInfos}
+                index={index}
+                formatDate={formatDate}
+              />
+            ))}
           </div>
         </div>
       </div>
