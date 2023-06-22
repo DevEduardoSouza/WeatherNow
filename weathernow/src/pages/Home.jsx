@@ -32,7 +32,7 @@ const Home = () => {
   }, [search]);
 
   // Date
-  const formatDate = (datetime) => {
+  const formatDate = (datetime, yearV) => {
     const apiDateTime = datetime;
 
     // Extrair a parte da data da string
@@ -42,7 +42,7 @@ const Home = () => {
     const parsedDate = parseISO(datePart);
 
     // Obter o nome do dia da semana em português (exemplo: "segunda-feira")
-    const diaSemana = format(parsedDate, "EEEE", { locale: ptBR });
+    var diaSemana = format(parsedDate, "EEEE", { locale: ptBR });
 
     // Obter o nome do mês em português (exemplo: "junho")
     const monthName = format(parsedDate, "MMMM", { locale: ptBR });
@@ -50,8 +50,12 @@ const Home = () => {
     // Obter o dia do mês
     const dayOfMonth = parsedDate.getDate();
 
-    // Obter o ano
-    const year = parsedDate.getFullYear();
+    // Um formato diferente para o card
+    var year = parsedDate.getFullYear();
+    if (!yearV) {
+      year = "";
+      diaSemana = diaSemana.substring(0, 3);
+    }
 
     const formatDateString =
       diaSemana.replace("-", " ") +
@@ -119,7 +123,9 @@ const Home = () => {
                   </button>
                 </form>
               </div>
-              <div className="date">{formatDate(tempoInfos.datetime)}</div>
+              <div className="date">
+                {formatDate(tempoInfos.datetime, true)}
+              </div>
             </div>
           </div>
         )}
@@ -134,7 +140,7 @@ const Home = () => {
           </span>
 
           <div className="tempo-prev-cards">
-            <Card tempoAtual={tempoInfos} />
+            <Card tempoAtual={tempoInfos} formatDate={formatDate} />
           </div>
         </div>
       </div>
