@@ -5,6 +5,8 @@ import { BiSearch } from "react-icons/bi";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
+import Card from "../componets/Card.jsx";
+
 const tempoURL = import.meta.env.VITE_API;
 const prevURL = import.meta.env.VITE_API_PREVISAO;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -122,7 +124,19 @@ const Home = () => {
           </div>
         )}
 
-        <div className="tempo-prev"></div>
+        <div className="tempo-prev">
+          <span className="logo">
+            {" "}
+            <img
+              src="https://cdn.icon-icons.com/icons2/3609/PNG/512/climate_forecast_weather_summer_rain_night_sun_cloudy_cloud_icon_226606.png"
+              alt="Logo nuvem"
+            />
+          </span>
+
+          <div className="tempo-prev-cards">
+            <Card tempoAtual={tempoInfos} />
+          </div>
+        </div>
       </div>
     </div>
   );

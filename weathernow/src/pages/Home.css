@@ -105,3 +105,7 @@ form{
   font-size: 13px;
   font-weight: bold;
 }
+
+.tempo-prev-cards{
+  display: flex;
+}

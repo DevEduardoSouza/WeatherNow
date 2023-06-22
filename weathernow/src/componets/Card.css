@@ -15,18 +15,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
-.infos{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-}
-.infos button{
-    color: #fff;
-    background: none ;
-    border: none;
-    cursor: pointer;
-}
+
 .climate-widget{
     display: flex;
     flex-direction: column;
@@ -44,17 +33,4 @@
 }
 .climate-widget .climate{
     font-size: 14px;
-}
-.daily-temperature-widget div{
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    padding-bottom: 5px;
-}
-.loading{
-    /* width: 100px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
 }
