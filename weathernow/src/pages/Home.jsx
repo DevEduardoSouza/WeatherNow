@@ -2,6 +2,7 @@ import "./Home.css";
 import React, { useEffect, useState } from "react";
 import { BsFillSunFill } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
+import { AiOutlineLoading } from "react-icons/ai";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -13,7 +14,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   const [tempoInfos, setTempoInfos] = useState([]);
-  const [search, setSearch] = useState("irece");
+  const [search, setSearch] = useState("São Paulo");
 
   const getPrevisoes = async (url) => {
     const resposta = await fetch(url);
@@ -86,7 +87,7 @@ const Home = () => {
     <div className="container-home">
       {/* <Card tempoAtual={tempoInfos} prevTempo={prevInfos}/> */}
       <div className="content-home">
-        {tempoInfos.length === 0 && <div className="loading">Carregando</div>}
+        {tempoInfos.length === 0 && <div className="loading"></div>}
         {tempoInfos.length != 0 && (
           <div className="tempo-hoje">
             <span className="logo">
