@@ -1,14 +1,11 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
-import { BsFillSunFill } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
-import { AiOutlineLoading } from "react-icons/ai";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 import Card from "../componets/Card.jsx";
 
-const tempoURL = import.meta.env.VITE_API;
 const prevURL = import.meta.env.VITE_API_PREVISAO;
 const apiKey = import.meta.env.VITE_API_KEY;
 

@@ -1,8 +1,5 @@
 import React from "react";
 import "./Card.css";
-import { MdLocationOn } from "react-icons/md";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BsFillSunFill } from "react-icons/bs";
 
 const card = ({ tempoAtual, index, formatDate }) => {
   //   const date = formatDate(tempoAtual.datetime);
