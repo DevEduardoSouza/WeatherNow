@@ -1,5 +1,5 @@
 import "./Home.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
