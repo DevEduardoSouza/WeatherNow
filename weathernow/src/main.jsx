@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 
+import "./index.css";
+
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
