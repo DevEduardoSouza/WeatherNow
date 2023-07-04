@@ -4,11 +4,13 @@
 Este repositório contém um projeto de uma aplicação de tempo atual, desenvolvido utilizando HTML, CSS, React.js e Vite. A aplicação tem como objetivo fornecer a temperatura atual de uma cidade com base em consultas à API da Weatherbit.io. Este projeto foi desenvolvido no início do aprendizado em React.js e utiliza o Vite como ferramenta de desenvolvimento rápida.
 
 ![Imagem](weathernow/src/assets/img_projeto.png)
-<a href="https://deveduardosouza.github.io/WeatherNow/#/home">Link</a>
+<a href="https://deveduardosouza.github.io/WeatherNow/#/home">Link do site</a>
+</br>
+<span>90% completo</span>
 
 ## Descrição
 
-A aplicação de tempo atual é uma aplicação web que utiliza a API da Weatherbit.io para consultar e exibir a temperatura atual de uma cidade informada pelo usuário. Ao digitar o nome da cidade na caixa de busca e pressionar o botão "Buscar", a aplicação faz uma chamada à API e exibe a temperatura atual em graus Celsius. A interface é simples e minimalista, com um design limpo e intuitivo.
+A aplicação de tempo atual é uma aplicação web que utiliza a API da Weatherbit.io para consultar e exibir a temperatura atual de uma cidade informada pelo usuário. Ao digitar o nome da cidade na caixa de busca e pressionar o botão "Buscar" ou pressione "ENTER", a aplicação faz uma chamada à API e exibe a temperatura atual em graus Celsius. A interface é simples e minimalista, com um design limpo e intuitivo.
 
 ## Funcionalidades
 
