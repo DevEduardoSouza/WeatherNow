@@ -22,7 +22,6 @@ const Home = () => {
     data.data[0].temp = parseInt(temperatura.toFixed());
 
     setTempoInfos(data);
-    console.log(data);
   };
 
   useEffect(() => {
