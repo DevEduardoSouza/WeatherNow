@@ -77,8 +77,6 @@ const Home = () => {
     setSearch(valueInput);
   };
 
-  // const limitedData = tempoInfos.data.slice(0, 6); // Limite para 6 elementos
-
   return (
     <div className="container-home">
       {/* <Card tempoAtual={tempoInfos} prevTempo={prevInfos}/> */}

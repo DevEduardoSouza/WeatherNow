@@ -1,9 +1,6 @@
-// import React from "react";
 import "./Card.css";
 
 const card = ({ tempoAtual, index, formatDate }) => {
-  //   const date = formatDate(tempoAtual.datetime);
-
   var date = "";
   if (tempoAtual.length != 0) {
     date = tempoAtual.data[index].datetime
